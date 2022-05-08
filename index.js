@@ -42,6 +42,14 @@ async function run() {
   try {
     await client.connect();
     const ItemsCollection = client.db('SportsGear').collection('Items');
+    const SupportsCollection = client.db('SportsGear').collection('support')
+
+    app.get('/support', async (req, res) => {
+      const query = {};
+      const cursor = SupportsCollection.find(query);
+      const support = await cursor.toArray();
+      res.send(support);
+    });
 
     app.get('/items', async (req, res) => {
       const query = {};
