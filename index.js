@@ -10,6 +10,7 @@ const port = process.env.PORT || 5000;
 //middleware
 app.use(cors());
 app.use(express.json());
+// console.log()
 
 function verifyJWT(req, res, next) {
   const authHeader = req.headers.authorization;
